@@ -1,0 +1,23 @@
+.global a,b,c
+.text
+	mov r3, -20
+	.skip 4
+	.align 4
+h:
+	.long 4
+a: 	.long e-h
+	gtmov r5,&a
+	mov r5[a],r3
+.data
+	e:.word a - e + g + _h
+	mov r5[a],r4
+	mov r5,20
+g: 	.long z
+	mov r5,r4[20]
+	.long 2
+f: 	.char n
+	.rodata
+z: 	.long 2
+	.bss
+n: 	.word 1
+.end

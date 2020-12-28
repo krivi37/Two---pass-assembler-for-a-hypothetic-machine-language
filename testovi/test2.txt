@@ -1,0 +1,31 @@
+.global _start
+
+.data
+niz:
+	.long 1,-2,5-3,-4,5
+.text
+
+_start:
+	push r0
+	mov r0, 65
+
+
+	mov r0, 0
+	mov r1, 5
+	mul r1, 2
+	mov r2, 0
+
+loop:	cmp r2, r1
+	moveq r7, &cont
+	mov r3, r2[niz]
+	addgt r0, r3
+incr:	add r2, 2
+	jmp loop
+
+cont:	
+	pop r0
+	ret
+.rodata 
+	.char -2, 12, 17
+
+.end

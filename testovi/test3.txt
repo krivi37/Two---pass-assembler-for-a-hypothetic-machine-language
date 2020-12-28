@@ -1,0 +1,23 @@
+.global a,b,c
+.text
+call getchar
+a:
+call scanf
+sub r3,&a
+moveq r3, r4[b]
+addne r2, r5[32]
+push 20
+mov r3,*20
+eqmov &a, r5
+alladd r1, $c
+gtadd r2,b
+jmp a
+ret
+iret
+.data
+b: .long 2
+c: .long 3
+.bss
+z:
+.long 3
+.end
